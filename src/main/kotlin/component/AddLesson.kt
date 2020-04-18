@@ -12,19 +12,19 @@ interface AppLessonProps : RProps {
 
 val addLessons =
     functionalComponent<AppLessonProps> { props ->
-    div {
-        h3 { +"add name lesson"}
-            input(type = InputType.text, name = "Key 1")
+        div {
+            h3 { +"add name lesson"}
+            input(type = InputType.text)
             {
                 attrs.id = "Lesson"
             }
-            input(type = InputType.submit, name = "Key 2") {
+            input(type = InputType.submit) {
                 attrs.onClickFunction =
                     {
-                     val lesson = document.getElementById("Lesson")
-                      as HTMLInputElement
-                     val tmp = lesson.value
-                      props.newlesson(tmp)
+                        val lesson = document.getElementById("Lesson") 
+                         as HTMLInputElement
+                        val tmp = lesson.value
+                        props.newlesson(tmp)
                     }
             }
         }
@@ -35,4 +35,3 @@ fun RBuilder.addlesson(
 ) = child(addLessons){
     attrs.newlesson= newlesson
 }
-
